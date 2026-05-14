@@ -1,0 +1,73 @@
+Sign up: <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="css/styled.css">
+</head>
+<body>
+    <div class="form-box">
+        <h1>📝 Sign Up</h1>
+
+        <div class="field">
+            <label for="fname">Full Name:</label>
+            <input type="text" id="fname" placeholder="Your full name">
+        </div>
+
+        <div class="field">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" placeholder="you@example.com">
+        </div>
+
+        <div class="field">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" placeholder="+254 700 000 000">
+        </div>
+
+        <div class="field">
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Create a password">
+        </div>
+
+        <div class="field">
+            <label for="confirm">Confirm Password:</label>
+            <input type="password" id="confirm" placeholder="Repeat your password">
+        </div>
+
+        <button type="button" onclick="signUp()">Sign Up</button>
+
+        <div class="links">
+            <p>Already have an account? <a href="index.html">Sign In</a></p>
+            <p style="margin-top:8px;"><a href="contact.html">Contact Us</a></p>
+        </div>
+    </div>
+
+    <script>
+        function signUp() {
+            const name = document.getElementById('fname').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+            const confirm = document.getElementById('confirm').value;
+
+            if (!name || !email || !phone || !password || !confirm) {
+                alert("Please fill in all fields!");
+                return;
+            }
+
+            if (password !== confirm) {
+                alert("Passwords do not match! Please try again ❌");
+                return;
+            }
+
+            alert("Welcome " + name + "! Your account has been created successfully ✅");
+            document.getElementById('fname').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('password').value = '';
+            document.getElementById('confirm').value = '';
+        }
+    </script>
+</body>
+</html>
